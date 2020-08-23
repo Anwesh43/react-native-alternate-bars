@@ -5,7 +5,7 @@ import SideMoveBlockContainer from './SideMoveBlock'
 
 export default function App() {
   return (
-      <SideMoveBlockContainer>
+      <SideMoveBlockContainer x = {140}  y = {300} d = {175} size = {90}>
       </SideMoveBlockContainer>
   );
 }

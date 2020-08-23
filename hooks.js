@@ -1,14 +1,16 @@
 import {useState} from 'react'
 import {StyleSheet} from 'react-native'
 import {sinify, divideScale} from './util'
-export const useAnimatedScale = (scGap = 0.02, delay = 20) {
+export const useAnimatedScale = (scGap = 0.02, delay = 20) => {
     const [scale, setScale] = useState(0)
     const [animated, setAnimated] = useState(false)
     
     return {
         scale,
         start() {
+            console.log("started")
             if (!animated) {
+                console.log("Stared anmation")
                 setAnimated(true)
                 let currScale = scale 
                 const interval = setInterval(() => {
@@ -31,11 +33,11 @@ export const useStyle = (scale, i, x, y, size, d) => {
     return StyleSheet.create({
         sidemoveblock: {
             width : size,
-            height : size / 5,
+            height : size / 3,
             position: 'absolute',
-            top : x - d * (1 - 2 * i) * sfi,
-            left : y,
-            backgroundColor: 'green'
+            left : x - d * (1 - 2 * i) * sfi,
+            top : y,
+            backgroundColor: '#33f491'
         }
     })
 }
