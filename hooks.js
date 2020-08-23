@@ -1,5 +1,6 @@
 import {useState} from 'react'
-
+import {StyleSheet} from 'react-native'
+import {sinify, divideScale} from './util'
 export const useAnimatedScale = (scGap = 0.02, delay = 20) {
     const [scale, setScale] = useState(0)
     const [animated, setAnimated] = useState(false)
@@ -22,4 +23,18 @@ export const useAnimatedScale = (scGap = 0.02, delay = 20) {
             }
         }
     }
+}
+
+export const useStyle = (scale, i, x, y, d) => {   
+    const sf = sinify(scale)
+    const sfi = divideScale(sf, i, 3)
+    return StyleSheet.create({
+        sidemoveblock: {
+            width : size,
+            height : size,
+            position: 'absolute',
+            top : x - d * (1 - 2 * i) * sfi,
+            left : y
+        }
+    })
 }
