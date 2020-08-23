@@ -25,16 +25,17 @@ export const useAnimatedScale = (scGap = 0.02, delay = 20) {
     }
 }
 
-export const useStyle = (scale, i, x, y, d) => {   
+export const useStyle = (scale, i, x, y, size, d) => {   
     const sf = sinify(scale)
     const sfi = divideScale(sf, i, 3)
     return StyleSheet.create({
         sidemoveblock: {
             width : size,
-            height : size,
+            height : size / 5,
             position: 'absolute',
             top : x - d * (1 - 2 * i) * sfi,
-            left : y
+            left : y,
+            backgroundColor: 'green'
         }
     })
 }
